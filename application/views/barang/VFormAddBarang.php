@@ -5,7 +5,7 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        <form action="<?php echo site_url('MenuType/store'); ?>" method="post">
+        <form action="<?php echo site_url('Barang/store'); ?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Nama Barang</label>
                 <input type="text" name="name"  class="form-control">
@@ -56,8 +56,12 @@
                 </select>
             </div>
             <div class="form-group">
+                <label>Stok Barang</label>
+                <input type="number" name="stock" class="form-control">
+            </div>
+            <div class="form-group">
                 <label for="">Harga</label>
-                <input type="text" name="name"  class="form-control harga">
+                <input type="text" name="harga"  class="form-control harga">
             </div>
             <div class="form-group">
                 <label for="">Deskripsi Barang</label>
@@ -67,11 +71,33 @@
                 <label for="">Detail Barang</label>
                 <textarea name="detail" id="detail" class="form-control"></textarea>
             </div>
+
+            <div class="form-group">
+                <label>Pilih Warna</label>
+                <select name="warna[]" class="form-control warna" multiple="true" style="width: 100% !important;">
+                    <option></option>
+                    <?php foreach ($colors as $kt) {?>
+                        <option style="background: red !important;" value="<?=$kt->code?>"><span style="background: red !important;"><?=$kt->name?></span></option>
+                    <?php }?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Form Detail</label>
+                <select name="form_detail" class="form-control form_detail" style="width: 100% !important;">
+                    <option></option>
+                    <?php foreach ($form_detail as $kt) {?>
+                        <option value="<?=$kt->id?>"><?=$kt->name?></option>
+                    <?php }?>
+                </select>
+            </div>
+            <div id="form-render"></div>
             <div class="form-group">
                 <label for="">Status</label> <br>
                 <input type="radio" value="on" name="status" > On
                 <input type="radio" value="off" name="status"  > Off
             </div>
+            <br>
+            <input type="file" name="userfile[]" multiple> <br>
             <button type="submit" name="simpan" class="btn btn-primary btn-sm">
                 <i class="fa fa-save"></i>
                 Simpan

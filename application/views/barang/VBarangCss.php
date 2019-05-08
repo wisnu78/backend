@@ -21,4 +21,10 @@
         padding-bottom:3px !important;
         padding-left:16px !important;
     }
+    li.select2-selection__choice {
+        background: #3c8dbc !important;
+    }
+    span.select2-selection__choice__remove {
+        color: white !important;
+    }
 </style>

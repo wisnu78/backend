@@ -17,8 +17,8 @@
             CKEDITOR.replace('detail')
         }
 
-        $('.kategori').select2({
-            placeholder:"--Pilih Kategori--"
+        $('.barang_id').select2({
+            placeholder:"--Pilih Barang--"
         });
 
         $('#barang').DataTable({

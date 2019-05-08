@@ -10,21 +10,26 @@
         <table id="barang" class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Gambar</th>
                     <th>Nama</th>
+                    <th>Harga</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             <?php
-                if(!empty($menu_type))
+                if(!empty($barang))
                 {
-                    foreach($menu_type as $ReadDS)
+                    foreach($barang as $ReadDS)
                     {
+                        $image = $ReadDS->images != null ? json_decode($ReadDS->images,true):['null'];
                         ?>
 
                         <tr>
+                            <td><img src="<?php echo isset($image) ? base_url('/upload/'.$image[0]):['null'];  ?>" style="width: 50px !important; height: 50px !important;" alt="Gambar tidak ada"></td>
                             <td><?php echo $ReadDS->name; ?></td>
+                            <td><?php echo number_format( $ReadDS->price); ?></td>
                             <td><?php echo $ReadDS->status; ?></td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="<?php echo site_url('Barang/index/'.$ReadDS->id.'/edit') ?>"><i class="fa fa-pencil"></i> Edit</a>

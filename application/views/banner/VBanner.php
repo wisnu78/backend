@@ -23,9 +23,9 @@
                         ?>
 
                         <tr>
-                            <td><?php echo $ReadDS->nama; ?></td>
+                            <td><?php echo $ReadDS->name; ?></td>
                             <td>
-                                <img src="<?php echo base_url()."/"."upload/".$ReadDS->gambar ?>" alt="" style="width:50px !important;height:50px !important" >
+                                <img src="<?php echo base_url()."/"."upload/".$ReadDS->image ?>" alt="" style="width:50px !important;height:50px !important" >
                             </td>
                             <td>
                                 <a href="<?php echo site_url('Banner/DataBanner/'.$ReadDS->kd_banner.'/view') ?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</a>

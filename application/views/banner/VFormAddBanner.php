@@ -5,13 +5,19 @@
     <!-- /.box-header -->
     <div class="box-body">
         <form action="<?php echo site_url('Banner/AddDataBanner'); ?>" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="">Kode Banner</label>
-                <input type="text" name="kd_banner" class="form-control">
-            </div>
+
             <div class="form-group">
                 <label for="">Nama banner</label>
                 <input type="text" name="nama" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Barang</label>
+                <select name="barang_id" id="" class="form-control barang_id">
+                    <option></option>
+                    <?php foreach ($barang as $b){ ?>
+                        <option value="<?=$b->id?>"><?=$b->name?></option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="form-group">
                 <label></label>

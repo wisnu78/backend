@@ -138,11 +138,22 @@
                             <i class="fa fa-address-book"></i> <span>Flash Sale</span>
                         </a>
                     </li>
+                    <li class="<?php echo activate_menu('ManageForm'); ?>">
+                        <a href="<?php echo site_url('ManageForm'); ?>">
+                            <i class="fa fa-address-book"></i> <span>Manage Form Detail</span>
+                        </a>
+                    </li>
                     <li class="<?php echo activate_menu('Barang'); ?>">
                         <a href="<?php echo site_url('Barang'); ?>">
                             <i class="fa fa-address-book"></i> <span>Barang</span>
                         </a>
                     </li>
+                    <li class="<?php echo activate_menu('Banner'); ?>">
+                        <a href="<?php echo site_url('Banner'); ?>">
+                            <i class="fa fa-address-book"></i> <span>Banner</span>
+                        </a>
+                    </li>
+
             </ul>
         </section>
         <!-- /.sidebar -->

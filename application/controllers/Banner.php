@@ -49,7 +49,7 @@ class Banner extends CI_Controller {
             $data['title'] = "Halaman banner";
             $data['css'] = '/banner/VBannerCss';
             $data['js'] = '/banner/VBannerJs';
-            $data['DataBanner']=$this->MSudi->GetData('tbl_banner');
+            $data['DataBanner']= M_Banner::all();
             $data['content']='Banner/VBanner';
         }
 
@@ -63,6 +63,7 @@ class Banner extends CI_Controller {
         $data['js'] = '/banner/VBannerJs';
         $data['title']  = "Halaman tambah banner";
         $data['content']='Banner/VFormAddBanner';
+        $data['barang'] = M_Barang::where("status","on")->get();
         $this->load->view('VBackend',$data);
     }
     public function AddDataBanner()
@@ -80,10 +81,11 @@ class Banner extends CI_Controller {
             // echo "<pre>";
             // print_r($data['upload_data']['file_name']);
             // echo "</pre>";
-            $add['kd_banner']=$this->input->post('kd_banner');
-            $add['nama']= $this->input->post('nama');
-            $add['gambar']= $data['upload_data']['file_name'];
-            $this->MSudi->AddData('tbl_banner',$add);
+            $banner = new M_Banner;
+            $banner->name = $this->input->post("nama");
+            $banner->barang_id = $this->input->post("barang_id");
+            $banner->image   = $data['upload_data']['file_name'];
+            $banner->save();
             redirect(site_url('Banner/DataBanner'));
             //$this->load->view('v_upload_sukses', $data);
 		}
